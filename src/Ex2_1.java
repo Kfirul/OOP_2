@@ -6,6 +6,6 @@ public class Ex2_1 {
         return files;
     }
     public static int getNumOfLines(String[] fileNames){
-
+return 0;
     }
 }
