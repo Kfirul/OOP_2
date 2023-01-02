@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.time.Instant;
 public class Ex2 {
-    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
+    public static void main(String[] args) throws Exception {
 
         String [] nameFiles=Ex2_1.createTextFiles(1000,20,500);
 
@@ -17,10 +17,10 @@ public class Ex2 {
         end = System.currentTimeMillis();
         System.out.println("Elapsed Time in seconds using threads: "+ (end-start)*0.001);
 
-//        start = System.currentTimeMillis();
-//        Ex2_1.getNumOfLinesThreadPool(nameFiles);
-//        end = System.currentTimeMillis();
-//        System.out.println("Elapsed Time in seconds using threadspool: "+ (end-start)*0.001);
+        start = System.currentTimeMillis();
+        Ex2_1.getNumOfLinesThreadPool(nameFiles);
+        end = System.currentTimeMillis();
+        System.out.println("Elapsed Time in seconds using thread-pool: "+ (end-start)*0.001);
         deleteFiles(1000);
     }
 

@@ -1,5 +1,9 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Ex2_1 {
 
@@ -57,9 +61,21 @@ public class Ex2_1 {
         }
         return sum;
     }
-//    public static int getNumOfLinesThreadPool(String[] fileNames){
-//
-//    }
+    public static int getNumOfLinesThreadPool(String[] fileNames) throws Exception {
+        int sum=0;
+        ArrayList<Future> futures= new ArrayList<>();
+        ExecutorService executor = Executors.newFixedThreadPool(fileNames.length);
+        for(int i=0;i< fileNames.length;i++){
+            FileThreadPool ftp=new FileThreadPool(fileNames[i]);
+            futures.add(executor.submit(ftp));
+
+        }
+        executor.shutdown();
+        for (Future f : futures) {
+            sum=sum+(Integer)f.get();
+        }
+        return sum;
+    }
 
 
     }
