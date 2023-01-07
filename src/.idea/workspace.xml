@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf5d7e86-b103-4c29-b148-0b769120b5d5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/OOP_2/Ex2_1_Diagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/Ex2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/Ex2_1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/Ex2_1_Diagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/FileThreadPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/FileThreads.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/CustomExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/TaskType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/Tests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ex2_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ex2_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex2_1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileThreadPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileThreads.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP_2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP_2/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="UML Sequence" />
         <option value="Class" />
       </list>
     </option>
@@ -24,17 +41,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JjF8rOHI9L52VfKAwUTqC5ZZdQ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Ex2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ex2" />
@@ -70,5 +97,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
