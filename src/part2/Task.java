@@ -2,29 +2,32 @@ package part2;
 
 import java.util.concurrent.Callable;
 
-public class Task<V> implements Callable,Comparable <Task> {
-    private Callable<V> callable;
+public class Task<T> implements Callable,Comparable <Task> {
+    private Callable<T> callable;
     private TaskType taskType;
 
-    public Task(Callable<V> callable,TaskType taskType){
+    public Task(Callable<T> callable,TaskType taskType){
         this.callable=callable;
         this.taskType=taskType;
     }
-
+    public Task(Callable<T> callable){
+        this.callable=callable;
+        taskType.setPriority(3);
+    }
     public static Task newTask(Callable callable,TaskType taskType){
           return new Task(callable, taskType);
     }
 
     @Override
-    public V call() throws Exception {
+    public T call() throws Exception {
         return callable.call();
     }
 
-    public Callable<V> getCallable() {
+    public Callable<T> getCallable() {
         return callable;
     }
 
-    public void setCallable(Callable<V> callable) {
+    public void setCallable(Callable<T> callable) {
         this.callable = callable;
     }
 
