@@ -15,12 +15,14 @@ public class Ex2 {
         System.out.println("Elapsed Time in seconds without threads: "+ (end-start)*0.001);
 
         start = System.currentTimeMillis();
-        Ex2_1.getNumOfLinesThreads(nameFiles);
+        Ex2_1 thread = new Ex2_1();
+        thread.getNumOfLinesThreads(nameFiles);
         end = System.currentTimeMillis();
         System.out.println("Elapsed Time in seconds using threads: "+ (end-start)*0.001);
 
         start = System.currentTimeMillis();
-        Ex2_1.getNumOfLinesThreadPool(nameFiles);
+        Ex2_1 threadPool = new Ex2_1();
+        threadPool.getNumOfLinesThreadPool(nameFiles);
         end = System.currentTimeMillis();
         System.out.println("Elapsed Time in seconds using thread-pool: "+ (end-start)*0.001);
         deleteFiles(1000);

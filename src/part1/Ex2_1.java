@@ -53,7 +53,7 @@ public class Ex2_1 {
 
             return countRows;
         }
-    public static int getNumOfLinesThreads(String[] fileNames) throws InterruptedException {
+    public int getNumOfLinesThreads(String[] fileNames) throws InterruptedException {
         int sum=0;
         for(int i=0;i< fileNames.length;i++){
             FileThreads fileThreads=new FileThreads(fileNames[i]);
@@ -63,7 +63,7 @@ public class Ex2_1 {
         }
         return sum;
     }
-    public static int getNumOfLinesThreadPool(String[] fileNames) throws Exception {
+    public int getNumOfLinesThreadPool(String[] fileNames) throws Exception {
         int sum=0;
         ArrayList<Future> futures= new ArrayList<>();
         ExecutorService executor = Executors.newFixedThreadPool(fileNames.length);

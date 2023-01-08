@@ -8,15 +8,13 @@ class Ex2_1{
 Ex2_1<--Ex2
 FileThreads <-- Ex2_1
 FileThreadPool <-- Ex2_1
-Thread <|-- FileThreads
-Callable <.. FileThreadPool
-class FileThreads{
+class FileThreads extends Thread{
 -String nameFile
 -int countRows
 +FileThreads(nameFile:String)
 +void run()
 }
-class FileThreadPool{
+class FileThreadPool implements Callable{
 -String nameFile
 -int countRows
 +FileThreadPool((nameFile:String)
