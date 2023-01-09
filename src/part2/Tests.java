@@ -19,7 +19,7 @@ public class Tests {
         var sumTask = customExecutor.submit(task);
         final int sum;
         try {
-            sum = sumTask.get(1, TimeUnit.MILLISECONDS);
+            sum = (int) sumTask.get(1, TimeUnit.MILLISECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             throw new RuntimeException(e);
         }

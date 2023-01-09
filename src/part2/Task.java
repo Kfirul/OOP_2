@@ -4,23 +4,32 @@ import java.util.concurrent.Callable;
 
 public class Task<T> implements Callable,Comparable <Task<T>> {
     private Callable<T> callable;
-    private Integer priorty;
+    private Integer priority;
 
-    public Task(Callable<T> callable,TaskType taskType){
+    protected Task(Callable<T> callable,TaskType taskType){
         this.callable=callable;
-        priorty=taskType.getPriorityValue();
+        priority=taskType.getPriorityValue();
     }
-    public Task(Callable<T> callable){
+    protected Task(Callable<T> callable){
         this.callable=callable;
-        priorty=3;
+        this.priority=3;
     }
-    public static Task createTask(Callable callable,TaskType taskType){
+    public static<T> Task<T> createTask(Callable callable,TaskType taskType){
           return new Task(callable, taskType);
+    }
+
+    public static <T> Task<T> createTask(Callable callable){
+        return new Task(callable);
+
     }
 
     @Override
     public T call() throws Exception {
-        return callable.call();
+        try {
+            return callable.call();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Callable<T> getCallable() {
@@ -31,15 +40,22 @@ public class Task<T> implements Callable,Comparable <Task<T>> {
         this.callable = callable;
     }
 
-    public int getPriorty() {
-        return priorty;
+    public int getPriority() {
+        return priority;
     }
-
 
 
     @Override
     public int compareTo(Task o) {
-        return this.priorty.compareTo(o.priorty);
+        int difference = o.priority - this.priority;
+        return Integer.signum(difference);
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "callable=" + callable +
+                ", priority=" + priority +
+                '}';
+    }
 }

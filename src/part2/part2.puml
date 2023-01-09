@@ -1,0 +1,50 @@
+@startuml
+Class Task implements Callable, Comparable{
+- Integer priority
+- Callable<T> callable
++ Task createTask()
++ T call()
++  Callable<T> getCallable()
++ void setCallable()
++ int getPriority()
++ int compareTo()
+# Task(callable: Callable<T>, taskType:TaskType)
+# Task(callable: Callable<T>)
+}
+enum TaskType{
+-TaskType(int: typePriority)
+-int typePriority
+-boolean validatePriority()
++String toString()
++void setPriority()
++int getPriorityValue()
+}
+Class CustomExecutor extends ThreadPoolExecutor{
+- int [] countPriorty
+- customSubmit()
++ CustomExecutor()
++<T> Future<Task> submit()
++int getCurrentMax()
++void gracefullyTerminate()
+# void beforeExecute()
+}
+
+
+Interface Callable{
++T call()
+}
+Interface Comparable{
++int compareTo()
+}
+Class ThreadPoolExecutor{
+#void beforeExecute()
++Future sumbit()
+}
+
+Task--CustomExecutor
+TaskType--Task
+
+
+
+
+@enduml
