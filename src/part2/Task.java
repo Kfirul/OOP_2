@@ -47,9 +47,9 @@ public class Task<T> implements Callable,Comparable <Task<T>> {
 
     @Override
     public int compareTo(Task o) {
-        int difference = o.priority - this.priority;
-        return Integer.signum(difference);
+        return  this.priority.compareTo(o.priority);
     }
+
 
     @Override
     public String toString() {
