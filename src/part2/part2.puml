@@ -41,8 +41,16 @@ Class ThreadPoolExecutor{
 +Future sumbit()
 }
 
+Class AdaptFutureTask extends FutureTask implements Comparable{
+-Task<T> taskCustom
++AdaptFutureTask(task:Task)
++getTask()
++int compareTo()
+}
+
 Task--CustomExecutor
 TaskType--Task
+AdaptFutureTask--Task
 
 
 
