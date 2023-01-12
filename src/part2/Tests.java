@@ -3,7 +3,12 @@ package part2;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
+
+import java.util.PriorityQueue;
 import java.util.concurrent.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class Tests {
     public static final Logger logger = LoggerFactory.getLogger(Tests.class);
     @Test
@@ -49,6 +54,34 @@ public class Tests {
         logger.info(()-> "Current maximum priority = " +
                 customExecutor.getCurrentMax());
         customExecutor.gracefullyTerminate();
+    }
+    @Test
+    public void queueOrderByPriority()  {
+        PriorityQueue<AdaptTask> queue = new PriorityQueue<AdaptTask>();
+        Task<Integer> task1 = Task.createTask(() -> {
+            Thread.sleep(1000);
+            return 1;
+        }, TaskType.COMPUTATIONAL);
+        AdaptTask taskAdapt1=new AdaptTask(task1);
+        Task<Integer> task2 = Task.createTask(() -> {
+            Thread.sleep(1000);
+            return 1;
+        }, TaskType.IO);
+        AdaptTask taskAdapt2=new AdaptTask(task2);
+
+        Task<Integer> task3 = Task.createTask(() -> {
+            Thread.sleep(1000);
+            return 1;
+        }, TaskType.OTHER);
+        AdaptTask taskAdapt3=new AdaptTask(task3);
+
+        queue.add(taskAdapt3);
+        queue.add(taskAdapt2);
+        queue.add(taskAdapt1);
+        assertEquals(1 , queue.poll().getTask().getPriority());
+        assertEquals(2 , queue.poll().getTask().getPriority());
+        assertEquals(3, queue.poll().getTask().getPriority());
+
     }
 }
 

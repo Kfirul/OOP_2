@@ -31,7 +31,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
         countPriorty[task.getPriority()] = countPriorty[task.getPriority()]+1;
         if (task == null || task.getCallable() == null)
             throw new NullPointerException();
-        RunnableFuture<T> customTask = new AdaptFutureTask<>(task);
+        RunnableFuture<T> customTask = new AdaptTask<>(task);
         execute(customTask);
         return customTask;
     }

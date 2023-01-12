@@ -2,7 +2,7 @@ package part2;
 
 import java.util.concurrent.FutureTask;
 
-public class AdaptFutureTask<T> extends FutureTask<T> implements Comparable<AdaptFutureTask<T>> {
+public class AdaptTask<T> extends FutureTask<T> implements Comparable<AdaptTask<T>> {
     private Task<T> taskCustom;
 
     /**
@@ -10,7 +10,7 @@ public class AdaptFutureTask<T> extends FutureTask<T> implements Comparable<Adap
      *
      * @param task the task to be wrapped by this AdaptFutureTask instance
      */
-    public AdaptFutureTask(Task<T> task) {
+    public AdaptTask(Task<T> task) {
         super(task);
         this.taskCustom = task;
     }
@@ -30,7 +30,7 @@ public class AdaptFutureTask<T> extends FutureTask<T> implements Comparable<Adap
      * @return the comparison result
      */
     @Override
-    public int compareTo(AdaptFutureTask<T> other){
+    public int compareTo(AdaptTask<T> other){
         return taskCustom.compareTo(other.getTask());
     }
 }
