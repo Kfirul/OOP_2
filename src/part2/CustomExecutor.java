@@ -6,7 +6,6 @@ import java.util.concurrent.*;
 public class CustomExecutor extends ThreadPoolExecutor {
 
     private int [] countPriorty;
-    private final Object lock = new Object();
 
     /**
      *  CustomExecutor constructor which initializes the ThreadPoolExecutor with the number of available processors
