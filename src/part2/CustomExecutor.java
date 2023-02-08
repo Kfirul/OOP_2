@@ -6,7 +6,7 @@ import java.util.concurrent.*;
 public class CustomExecutor extends ThreadPoolExecutor {
 
     private int [] countPriorty;
-
+    private final Object lock = new Object();
 
     /**
      *  CustomExecutor constructor which initializes the ThreadPoolExecutor with the number of available processors
@@ -28,13 +28,16 @@ public class CustomExecutor extends ThreadPoolExecutor {
      * @throws NullPointerException if task is null or if task's callable is null
      */
     private <T> Future<T> customSubmit(Task<T> task){
-        countPriorty[task.getPriority()] = countPriorty[task.getPriority()]+1;
-        if (task == null || task.getCallable() == null)
-            throw new NullPointerException();
-        RunnableFuture<T> customTask = new AdaptTask<>(task);
-        execute(customTask);
-        return customTask;
-    }
+        synchronized(task) {
+            countPriorty[task.getPriority()] = countPriorty[task.getPriority()] + 1;
+        }
+            if (task == null || task.getCallable() == null)
+                throw new NullPointerException();
+            RunnableFuture<T> customTask = new AdaptTask<>(task);
+            execute(customTask);
+            return customTask;
+        }
+
     /**
      * Submits a task with default priority for execution and returns a Future representing that task.
      * It creates a new Task instance with the input task and default priority, then submit the new task to execution.
@@ -65,7 +68,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
      *
      * @return the maximum priority
      */
-    public int getCurrentMax() {
+    public synchronized int getCurrentMax() {
         for (int i = 1; i <= 10; i++) {
             if (countPriorty[i]>0)
                 return i;
@@ -89,7 +92,7 @@ public class CustomExecutor extends ThreadPoolExecutor {
      * @param r the task that will be executed
      */
     @Override
-    protected void beforeExecute(Thread t, Runnable r) {
+    protected synchronized void beforeExecute(Thread t, Runnable r) {
         boolean found=false;
         for(int i=1;i<=10 && !found;i++){
                 if(countPriorty[i]>0){
