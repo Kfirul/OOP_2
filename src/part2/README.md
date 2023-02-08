@@ -28,7 +28,12 @@ The Factory pattern consists of a factory class and one or more product classes.
 The Adapter pattern consists of a target interface (the interface that the client expects), an adapter class (the class that adapts the adaptee class to the target interface), and an adaptee class (the class that needs to be adapted to the target interface).
 
 The Adapter class implements the target interface and holds an instance of the adaptee class. The client calls methods on the Adapter, which in turn calls the corresponding methods on the adaptee.
-  
+# Strategy  
+The Strategy design pattern is a behavioral design pattern that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use. This allows the client code to be decoupled from the algorithms, and selects the algorithm to use dynamically at runtime, depending on the needs of the application.
+
+In other words, the Strategy pattern defines a family of algorithms, encapsulates each one of them, and makes them interchangeable. The strategy pattern allows the algorithm to be selected either at compile time or run time. The client code calls the algorithm through a common interface, and doesn't have to worry about the specific implementation details of the algorithm.
+
+This pattern is commonly used in applications where multiple algorithms exist for solving a problem and the choice of which algorithm to use is based on runtime data.
  # UML of the classes
   ![image](https://user-images.githubusercontent.com/99495429/212020267-e813737e-4868-4d18-b5a7-95ee5bc3dd45.png)
   
